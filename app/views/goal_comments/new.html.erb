@@ -3,6 +3,7 @@
 <form action="<%= goal_comments_url %>" method="post">
   <%= form_auth_token %>
   <label for="comment">Comment</label>
-  <textarea id="comment" name="comment[comment]"></textarea>
+  <input type="hidden" name="goal_comment[subject_id]" value="<%=params[:goal_id]%>">
+  <textarea id="comment" name="goal_comment[comment]"></textarea>
   <button>Make Comment</button>
 </form>

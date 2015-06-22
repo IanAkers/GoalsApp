@@ -85,7 +85,7 @@ feature "user can destroy goals" do
     sign_up("othername")
     visit("/goals")
     click_link "testname"
-    expect(page).not_to have_link("Learn to juggle")
+    expect(page).not_to have_link("Learn to juggle", exact: true)
   end
 end
 

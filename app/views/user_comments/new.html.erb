@@ -3,6 +3,7 @@
 <form action="<%= user_comments_url %>" method="post">
   <%= form_auth_token %>
   <label for="comment">Comment</label>
-  <textarea id="comment" name="comment[comment]"></textarea>
+  <input type="hidden" name="user_comment[subject_id]" value="<%=params[:user_id]%>">
+  <textarea id="comment" name="user_comment[comment]"></textarea>
   <button>Make Comment</button>
 </form>

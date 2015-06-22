@@ -1,0 +1,6 @@
+<ul>
+  <% goal.comments_received.each do |comment| %>
+    <li> <%=comment.comment%> says <%=comment.commenter.username%> </li>
+  <% end %>
+</ul>
+<a href="<%=new_goal_goal_comment_url(goal)%>">Comment on <%=goal.content%></a>
