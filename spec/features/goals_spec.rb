@@ -74,7 +74,8 @@ feature "user can destroy goals" do
   scenario "user can destroy own goals" do
     create_goal("Wear less hats", "Public")
     click_link('My Profile')
-    click_button("destroy_Wear_less_hats")
+    click_link("Wear less hats")
+    click_button("Delete Goal")
     expect(page).not_to have_content("Wear less hats")
   end
 
@@ -84,7 +85,7 @@ feature "user can destroy goals" do
     sign_up("othername")
     visit("/goals")
     click_link "testname"
-    expect(page).not_to have_button("destroy_Learn_to_juggle")
+    expect(page).not_to have_link("Learn to juggle")
   end
 end
 
@@ -94,7 +95,8 @@ feature "user can update goals" do
     sign_up("testname")
     create_goal("Edit more goals", "Public")
     click_link("My Profile")
-    click_button("Edit_more_goals")
+    click_link("Edit more goals")
+    click_button("Update Goal")
   end
 
   scenario "edit page exists" do

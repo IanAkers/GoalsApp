@@ -21,3 +21,10 @@
 </form>
 
 <a href="<%= goals_url %>">Back to Goals Index</a>
+
+<form action="<%= goal_url(@goal) %>" method="POST">
+  <input type="hidden" name="user_id" value="<%=@goal.user_id%>">
+  <input type="hidden" name="_method" value="DELETE">
+  <%= form_auth_token %>
+  <button>Delete Goal</button>
+</form>
