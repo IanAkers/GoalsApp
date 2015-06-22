@@ -41,7 +41,7 @@ feature "can comment on user" do
     expect(page).to have_content("Comment on testname")
   end
 
-  scenario "comments show up on user page"
+  scenario "comments show up on user page" do
     click_link("Comment on testname")
     fill_in("Comment", with: "asdf")
     click_button("Make Comment")
