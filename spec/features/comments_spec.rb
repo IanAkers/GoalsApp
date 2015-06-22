@@ -11,18 +11,18 @@ feature "can comment on others' goals" do
   end
 
   scenario "has link to comment" do
-    expect(page).to have_link("Comment on Edit more goals")
+    expect(page).to have_button("Comment on Edit more goals")
   end
 
   scenario "comments show up on user page" do
-    click_link("Comment on Edit more goals")
+    click_button("Comment on Edit more goals")
     fill_in("Comment", with: "Ur dum1")
     click_button("Make Comment")
     expect(page).to have_content("Ur dum1")
   end
 
   scenario "comments can't be empty" do
-    click_link("Comment on Edit more goals")
+    click_button("Comment on Edit more goals")
     click_button("Make Comment")
     expect(page).to have_content("Comment can't be blank.")
   end
@@ -42,14 +42,14 @@ feature "can comment on user" do
   end
 
   scenario "comments show up on user page" do
-    click_link("Comment on testname")
+    click_button("Comment on testname")
     fill_in("Comment", with: "asdf")
     click_button("Make Comment")
     expect(page).to have_content("asdf")
   end
 
   scenario "comments can't be empty" do
-    click_link("Comment on testname")
+    click_button("Comment on testname")
     click_button("Make Comment")
     expect(page).to have_content("Comment can't be blank.")
   end

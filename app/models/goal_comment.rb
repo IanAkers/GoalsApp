@@ -11,4 +11,8 @@ class GoalComment < ActiveRecord::Base
     foreign_key: :subject_id,
     primary_key: :id
 
+    has_one :goal_owner,
+    through: :goal,
+    source: :user
+
 end

@@ -1,5 +1,5 @@
 <h1><%= @user.username %></h1>
-
+<%= render 'user_comment_button' user_id: @user.id %>
 
 <ul>
   <% Goal.where(goal_type: "Public").where(user_id: params[:id]).each do |goal| %>

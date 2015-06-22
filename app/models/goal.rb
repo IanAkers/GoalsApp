@@ -8,4 +8,6 @@ class Goal < ActiveRecord::Base
   primary_key: :id
   )
 
+  
+
 end

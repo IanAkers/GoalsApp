@@ -11,4 +11,5 @@ class UserComment < ActiveRecord::Base
     foreign_key: :subject_id,
     primary_key: :id
 
+
 end
