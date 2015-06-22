@@ -1,4 +1,5 @@
 class GoalsController < ApplicationController
+  before_action :require_signed_in
 
   def index
     render :index
@@ -10,6 +11,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = current_user.goals.new(goal_params)
+    @goal.goal_status = "Not Completed"
     if @goal.save
       redirect_to goals_url
     else

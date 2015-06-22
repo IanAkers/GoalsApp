@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many(
   :goals,
   foreign_key: :user_id,
-  primary_key: :id
+  primary_key: :id,
   class_name: "Goal"
   )
 

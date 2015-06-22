@@ -1,0 +1,32 @@
+<h1><%= @user.username %></h1>
+
+
+<ul>
+  <% Goal.where(goal_type: "Public").where(user_id: params[:id]).each do |goal| %>
+    <li>
+      <% if current_user.id == params[:id].to_i %>
+        <a href="<%=edit_goal_url(goal)%>"><%= goal.content %></a>
+      <% else %>
+        <%= goal.content %>
+      <% end %>
+      Status: <%= goal.goal_status %>
+    </li>
+  <% end %>
+
+  <% if current_user.id == params[:id].to_i %>
+    <% current_user.goals.where(goal_type: "Private").each do |goal| %>
+      <li>
+        <a href="<%=edit_goal_url(goal)%>"><%= goal.content %></a> Status: <%= goal.goal_status %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<br>
+<% if current_user.id == params[:id].to_i %>
+<form action="<%= new_goal_url %>" method="get">
+  <%= form_auth_token %>
+  <button>New Goal</button>
+
+</form>
+<% end %>

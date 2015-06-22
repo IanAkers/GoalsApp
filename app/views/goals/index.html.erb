@@ -1,14 +1,14 @@
 <h1><%= current_user.username %></h1>
-<form action="<%= new_goal_url %>" method="post">
+<form action="<%= new_goal_url %>" method="get">
   <%= form_auth_token %>
   <button>New Goal</button>
 
 </form>
 
 <ul>
-  <% Goal.includes(:goal_type).where(goal_type: "Public").each do |goal|%>
+  <% Goal.where(goal_type: "Public").each do |goal|%>
     <li>
-      <%= goal.content %> by <a href="<%=user_url(goal.user)%>"><%= goal.user.username %></a> Status: <%= goal.goal_status %>
+      <%= goal.content %> by <a href="<%= user_url(goal.user)%>"><%= goal.user.username %></a> Status: <%= goal.goal_status %>
     </li>
   <% end %>
 </ul>
