@@ -1,0 +1,23 @@
+<h1>Edit Goal</h1>
+
+<form action="<%= goals_url %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= form_auth_token %>
+  <label for="goal_content">Content</label>
+  <input type="textarea" id="goal_content" name="goal[content]" value="<%= @goal.content%>">
+
+  <label for="goal_type_public">Public</label>
+    <input type="radio" name="goal[goal_type]" id="goal_type_public" value="Public" <%= checked="checked" if @goal.goal_type == "Public" %>>
+  <label for="goal_type_private">Private</label>
+    <input type="radio" name="goal[goal_type]" id="goal_type_private" value="Private"<%= checked="checked" if @goal.goal_type == "Private" %>>
+
+  <label for="goal_status_completed">Completed</label>
+    <input type="radio" name="goal[goal_status]" id="goal_status_completed" value="Completed" <%= checked="checked" if @goal.goal_status == "Completed" %>>
+  <label for="goal_status_not_completed">Not Completed</label>
+    <input type="radio" name="goal[goal_status]" id="goal_status_not_completed" value="Not Completed" <%= checked="checked" if @goal.goal_status == "Not Completed" %>>
+
+
+  <button>Update Goal</button>
+</form>
+
+<a href="<%= goals_url %>">Back to Goals Index</a>
