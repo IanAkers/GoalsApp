@@ -30,3 +30,11 @@ end
 def sign_out
   click_on "Sign Out"
 end
+
+def create_goal(goal_content, goal_type)
+  visit("/goals")
+  click_button("New Goal")
+  fill_in("Content", :with => goal_content)
+  choose(goal_type)
+  click_button("Create Goal")
+end
