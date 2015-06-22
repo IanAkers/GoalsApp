@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bcrypt'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails'
 end
 
 group :development do

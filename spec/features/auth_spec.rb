@@ -7,20 +7,20 @@ feature "the signup process" do
     visit('/users/new')
     expect(page).to have_content("Sign Up")
   end
-
-  feature "signing up a user" do
-
-    scenario "shows username on the homepage after signup" do
-      sign_up("testname")
-      expect(page).to have_content("testname")
-    end
-  end
-
 end
 
-feature "logging in" do
+feature "signing up a user" do
 
-  scenario "shows username on the homepage after login" do
+  scenario "shows username on the homepage after signup" do
+    sign_up("testname")
+    expect(page).to have_content("testname")
+  end
+end
+
+
+feature "signing in" do
+
+  scenario "shows username on the homepage after signin" do
     sign_up("testname")
     sign_in("testname")
     expect(page).to have_content("testname")
@@ -28,7 +28,7 @@ feature "logging in" do
 
 end
 
-feature "logging out" do
+feature "signing out" do
 
   scenario "begins with signed out state" do
     visit("/users/new")
@@ -36,7 +36,7 @@ feature "logging out" do
   end
 
 
-  scenario "doesn't show username on the homepage after signout"
+  scenario "doesn't show username on the homepage after signout" do
     sign_up("testname")
     sign_in("testname")
     sign_out
