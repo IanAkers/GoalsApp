@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'launchy'
   gem 'web-console'
   gem 'binding_of_caller'
   gem 'better_errors'

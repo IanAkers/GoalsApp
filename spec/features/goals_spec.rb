@@ -96,7 +96,6 @@ feature "user can update goals" do
     create_goal("Edit more goals", "Public")
     click_link("My Profile")
     click_link("Edit more goals")
-    click_button("Update Goal")
   end
 
   scenario "edit page exists" do

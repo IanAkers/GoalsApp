@@ -28,7 +28,7 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     if @goal.update(goal_params)
       flash[:notices] = ["Goal Updated"]
-      redirect_to goals_url
+      redirect_to user_url(@goal.user_id)
     else
       flash[:errors] = @goal.errors.full_messages
       render :edit
